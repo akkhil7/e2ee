@@ -10,12 +10,12 @@
     - returns `clientDecryptedData`
 
 ```
-  a. nodejs will generate public key and private key (like m2p)
+  a. server will generate public key and private key (like m2p)
   b. client will generate shared secret based on public key in step a
-  c. nodejs will generate shared secret based on client public key
+  c. server will generate shared secret based on client public key
   d. client will use shared secret in step b to encrypt req
-  e. nodejs will take encrypt req and decrypt using shared secret in step c
-  f. nodejs will send encrypt response using shared secret in step c
+  e. server will take encrypt req and decrypt using shared secret in step c
+  f. server will send encrypt response using shared secret in step c
   d. client will take encrypt response and decrypt using shared secret b
 ```
 
