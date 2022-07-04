@@ -28,3 +28,31 @@
 
 - If you have node installed, you can do `npx serve` and it should serve your files at `localhost:3000`
 - Open the address in your browser and open chrome dev tools console for the logs printed
+
+## Findings
+
+1. Client<>Server communication working properly (full-duplex communication)
+2. Same secret key is generated on both ends
+3. Since same secret is generated on client side with web crypto api, we can confirm web crypto api is working fine in Razorpay implementation also.
+4. Client uses web crypto api (because `crypto` module is only for node)
+5. Server (in nodejs) uses `crypto-js` and `crypto` both.
+6. We can confirm encryption from frontend is also working fine because the nodejs example is able to successfully decrypt it.
+7. Only grey area is the decryption part
+
+- Maybe decryption is failing
+- or maybe decryption worked, but the decrypted data was invalid.
+
+What can we do?
+
+1. Use app public key and pair via postman
+2. Generate token
+
+- Get m2p public key
+- Let browser app accept m2p public key to generate the secret key
+- Use secret key to encrypt the request
+
+3. Use encrypted data to send fetch txn
+
+- Use encrypted data in request body
+- Use token in request header
+- Use new url key in request params
