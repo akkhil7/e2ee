@@ -19,8 +19,8 @@ async function createKeyPairAndGenerateSecret(keyPair) {
       appPublicKey: hexedAppPublicKey,
     })
     .then(async (res) => {
-      const { m2p_public_key } = res.data;
-      // const m2p_public_key = window.prompt("Enter m2p public key");
+      // const { m2p_public_key } = res.data;
+      const m2p_public_key = window.prompt("Enter m2p public key");
       // console.log('LOCALHOST', { m2p_public_key });
       // console.log("M2P Public Key");
       console.log(m2p_public_key);
